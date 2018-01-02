@@ -1,30 +1,41 @@
 import java.io.*;
 import java.util.*;
 /*
-Your friend has n cards.
+Bob programmed a robot to navigate through a 2d maze.
 
-You know that each card has a lowercase English letter on one side and a digit on the other.
+The maze has some obstacles. Empty cells are denoted by the character '.', where obstacles are denoted by '#'.
 
-Currently, your friend has laid out the cards on a table so only one side of each card is visible.
+There is a single robot in the maze. Its start position is denoted with the character 'S'. This position has no obstacle in it. There 
+is also a single exit in the maze. Its position is denoted with the character 'E'. This position has no obstacle in it.
 
-You would like to know if the following statement is true for cards that your friend owns: "If a card has a vowel on one side, then it
-has an even digit on the other side." More specifically, a vowel is one of 'a', 'e', 'i', 'o' or 'u', and even digit is one of '0', '2',
-'4', '6' or '8'.
+The robot can only move up, left, right, or down.
 
-For example, if a card has 'a' on one side, and '6' on the other side, then this statement is true for it. Also, the statement is true,
-for example, for a card with 'b' and '4', and for a card with 'b' and '3' (since the letter is not a vowel). The statement is false, 
-for example, for card with 'e' and '5'. You are interested if the statement is true for all cards. In particular, if no card has a 
-vowel, the statement is true.
+When Bob programmed the robot, he wrote down a string of digits consisting of the digits 0 to 3, inclusive. He intended for each digit
+to correspond to a distinct direction, and the robot would follow the directions in order to reach the exit. Unfortunately, he forgot
+to actually assign the directions to digits.
 
-To determine this, you can flip over some cards to reveal the other side. You would like to know what is the minimum number of cards
-you need to flip in the worst case in order to verify that the statement is true.
+The robot will choose some random mapping of digits to distinct directions. The robot will map distinct digits to distinct directions.
+The robot will then follow the instructions according to the given string in order and chosen mapping. If an instruction would lead the
+robot to go off the edge of the maze or hit an obstacle, the robot will crash and break down. If the robot reaches the exit at any point,
+then the robot will stop following any further instructions.
+
+Bob is having trouble debugging his robot, so he would like to determine the number of mappings of digits to directions that would lead
+the robot to the exit.
 
 Input
-The first and only line of input will contain a string s (1 ≤ |s| ≤ 50), denoting the sides of the cards that you can see on the table
-currently. Each character of s is either a lowercase English letter or a digit.
+The first line of input will contain two integers n and m (2 ≤ n, m ≤ 50), denoting the dimensions of the maze.
+
+The next n lines will contain exactly m characters each, denoting the maze.
+
+Each character of the maze will be '.', '#', 'S', or 'E'.
+
+There will be exactly one 'S' and exactly one 'E' in the maze.
+
+The last line will contain a single string s (1 ≤ |s| ≤ 100) — the instructions given to the robot. Each character of s is a digit from
+0 to 3.
 
 Output
-Print a single integer, the minimum number of cards you must turn over to verify your claim.
+Print a single integer, the number of mappings of digits to directions that will lead the robot to the exit.
 */
 public class GFG {
 	public static void main (String[] args) {
