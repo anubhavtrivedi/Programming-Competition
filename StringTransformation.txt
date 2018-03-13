@@ -1,0 +1,139 @@
+import java.io.*;
+import java.util.*;
+
+public class GFG {
+	static int[] b;
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		long n, ans, a, b = 0;
+		String st = in.nextLine();
+		char[] ch = st.toCharArray();
+		char[] goal = new char[26];
+		goal[0] = 'a';
+		goal[1] = 'b';
+		goal[2] = 'c';
+		goal[3] = 'd';
+		goal[4] = 'e';
+		goal[5] = 'f';
+		goal[6] = 'g';
+		goal[7] = 'h';
+		goal[8] = 'i';
+		goal[9] = 'j';
+		goal[10] = 'k';
+		goal[11] = 'l';
+		goal[12] = 'm';
+		goal[13] = 'n';
+		goal[14] = 'o';
+		goal[15] = 'p';
+		goal[16] = 'q';
+		goal[17] = 'r';
+		goal[18] = 's';
+		goal[19] = 't';
+		goal[20] = 'u';
+		goal[21] = 'v';
+		goal[22] = 'w';
+		goal[23] = 'x';
+		goal[24] = 'y';
+		goal[25] = 'z';
+		int top = 0;
+		if (ch.length < 26) {
+			System.out.println(-1);
+			return;
+		}
+
+		boolean solved = false;
+		for (int i = 0; i < ch.length; i++) {
+
+			if (top == 26) {
+				solved = true;
+				break;
+			}
+			a = ch[i];
+			b = goal[top];
+			// System.out.println(a+" "+b);
+			if (b >= a) {
+				ch[i] = goal[top];
+				top++;
+
+			}
+
+		}
+
+		if (solved || top == 26) {
+			String out = new String(ch);
+
+			System.out.println(out);
+		} else {
+			System.out.println(-1);
+		}
+		// ob.sort(arr, 0, arr.length-1);
+
+		// System.out.println(a+" "+b);
+	}
+
+	void merge(int arr[], int l, int m, int r) {
+		// Find sizes of two subarrays to be merged
+		int n1 = m - l + 1;
+		int n2 = r - m;
+
+		/* Create temp arrays */
+		int L[] = new int[n1];
+		int R[] = new int[n2];
+
+		/* Copy data to temp arrays */
+		for (int i = 0; i < n1; ++i)
+			L[i] = arr[l + i];
+		for (int j = 0; j < n2; ++j)
+			R[j] = arr[m + 1 + j];
+
+		/* Merge the temp arrays */
+
+		// Initial indexes of first and second subarrays
+		int i = 0, j = 0;
+
+		// Initial index of merged subarry array
+		int k = l;
+		while (i < n1 && j < n2) {
+			if (L[i] <= R[j]) {
+				arr[k] = L[i];
+				i++;
+			} else {
+				arr[k] = R[j];
+				j++;
+			}
+			k++;
+		}
+
+		/* Copy remaining elements of L[] if any */
+		while (i < n1) {
+			arr[k] = L[i];
+			i++;
+			k++;
+		}
+
+		/* Copy remaining elements of R[] if any */
+		while (j < n2) {
+			arr[k] = R[j];
+			j++;
+			k++;
+		}
+	}
+
+	// Main function that sorts arr[l..r] using
+	// merge()
+	void sort(int arr[], int l, int r) {
+		if (l < r) {
+			// Find the middle point
+			int m = (l + r) / 2;
+
+			// Sort first and second halves
+			sort(arr, l, m);
+			sort(arr, m + 1, r);
+
+			// Merge the sorted halves
+			merge(arr, l, m, r);
+		}
+
+	}
+}

@@ -1,0 +1,36 @@
+import java.io.*;
+import java.util.*;
+
+public class GFG {
+	static int[] b;
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		long n, x = 1, temp;
+		int g, sum = 0;
+		n = in.nextInt();
+		while (true) {
+			while (true) {
+				sum = 0;
+				temp = x;
+				while (temp > 0) {
+					g = (int) temp % 10;
+					temp = temp / 10;
+					sum += g;
+				}
+
+				if (sum == 10) {
+					n--;
+				}
+				x++;
+				if (n == 0) {
+					x--;
+					System.out.println(x);
+					return;
+				}
+			}
+
+		}
+
+	}
+}

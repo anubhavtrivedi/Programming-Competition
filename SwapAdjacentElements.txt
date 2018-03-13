@@ -1,0 +1,54 @@
+import java.io.*;
+import java.util.*;
+
+public class GFG {
+	static int[] b;
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int n, m, k;
+		int[] all;
+		String w;
+
+		n = in.nextInt();
+		int[] arr = new int[n + 1];
+		for (int q = 1; q < n; q++) {
+			arr[q] = in.nextInt();
+		}
+		in.nextLine();
+		w = in.nextLine();
+		String[] t = w.split("");
+		int top = 1;
+		all = new int[t.length + 1];
+		for (String d : t) {
+			all[top] = Integer.parseInt(d);
+			top++;
+		}
+
+		int ind = n - 1, max = n;
+		// System.out.println(all[ind]);
+		while (true) {
+			if (ind == 0) {
+				break;
+			}
+			if (all[ind] == 0) {
+				max = ind;
+				if (arr[ind] > ind) {
+					System.out.println("NO");
+					return;
+				}
+			} else {
+				if (arr[ind] > max) {
+					System.out.println("NO");
+					return;
+				}
+			}
+			ind--;
+
+		}
+
+		System.out.println("YES");
+
+	}
+
+}

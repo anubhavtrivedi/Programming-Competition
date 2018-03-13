@@ -1,0 +1,26 @@
+import java.io.*;
+import java.util.*;
+
+public class GFG {
+	static int[] b;
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int n, m;
+		n = in.nextInt();
+		m = in.nextInt();
+		double a, b;
+		double cost, min = 100000000;
+
+		for (int i = 0; i < n; i++) {
+			a = in.nextInt();
+			b = in.nextInt();
+			cost = a / b;
+			if (cost < min) {
+				min = cost;
+			}
+
+		}
+		System.out.println(min * m);
+	}
+}

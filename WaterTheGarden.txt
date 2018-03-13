@@ -1,0 +1,78 @@
+import java.io.*;
+import java.util.*;
+
+public class GFG {
+	static int[] b;
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int n, m, k, ans = 0, t, start, end, mid = 0;
+		t = in.nextInt();
+		int[] tap;
+		for (int i = 0; i < t; i++) {
+			mid = 0;
+			start = 0;
+			end = 0;
+			n = in.nextInt();
+			k = in.nextInt();
+			tap = new int[k];
+			for (int j = 0; j < k; j++) {
+				tap[j] = in.nextInt();
+			}
+			tap = sort(tap);
+			start = tap[0];
+			end = n - tap[k - 1] + 1;
+
+			for (int q = 0; q < k - 1; q++) {
+				if ((tap[q + 1] - tap[q] - 1) > mid) {
+					mid = tap[q + 1] - tap[q] - 1;
+				}
+			}
+
+			if (mid % 2 == 0) {
+				mid = mid / 2;
+			} else {
+				mid++;
+				mid = mid / 2;
+
+			}
+			mid++;
+			if (start >= end) {
+				if (start > mid) {
+					ans = start;
+				} else {
+					ans = mid;
+				}
+			} else {
+				if (end > mid) {
+					ans = end;
+				} else {
+					ans = mid;
+				}
+
+			}
+
+			System.out.println(ans);
+			// System.out.println(start+" "+mid+" "+end);
+		}
+
+	}
+
+	public static int[] sort(int[] a) {
+		int flag;
+		for (int i = 0; i < a.length; i++) {
+			flag = 0;
+			for (int j = 0; j < a.length - 1 - i; j++) {
+				if (a[j + 1] < a[j]) {
+					a[j] = a[j] + a[j + 1];
+					a[j + 1] = a[j] - a[j + 1];
+					a[j] = a[j] - a[j + 1];
+					flag = 1;
+				}
+			}
+			if (flag == 0)
+				break;
+		}
+		return a;
+	}
+}

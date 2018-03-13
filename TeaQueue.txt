@@ -1,0 +1,46 @@
+import java.io.*;
+import java.util.*;
+
+public class GFG {
+	static int[] b;
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int n, m, k, t;
+		int time;
+		String ans = "";
+		t = in.nextInt();
+		int[][] st;
+		for (int i = 0; i < t; i++) {
+
+			ans = "";
+			time = 1;
+			n = in.nextInt();
+			st = new int[n][2];
+			for (int q = 0; q < n; q++) {
+				if (q > 0)
+					ans += " ";
+				st[q][0] = in.nextInt();
+				st[q][1] = in.nextInt();
+				if (time < st[q][0]) {
+					time = st[q][0];
+					// System.out.println("ans");
+				}
+				if (st[q][1] < time) {
+					// System.out.println("ans");
+					ans += "0";
+					continue;
+
+				} else {
+					ans += "" + time;
+				}
+				time++;
+			}
+
+			System.out.println(ans);
+
+		}
+
+	}
+
+}

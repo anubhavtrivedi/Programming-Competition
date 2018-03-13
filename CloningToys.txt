@@ -1,0 +1,35 @@
+import java.io.*;
+import java.util.*;
+
+public class GFG {
+	static int[] b;
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int n, m;
+		m = in.nextInt();
+		n = in.nextInt();
+
+		if (n - 1 > m) {
+			System.out.println("No");
+			return;
+		}
+		if (n == 0) {
+			System.out.println("No");
+			return;
+		}
+		if (n == 1 && m == 0) {
+			System.out.println("Yes");
+			return;
+		}
+		int x = (n - 1);
+		m -= x;
+		if (m % 2 == 0 && x > 0) {
+			System.out.println("Yes");
+			return;
+		}
+
+		System.out.println("No");
+	}
+
+}
