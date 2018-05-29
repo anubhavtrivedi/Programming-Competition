@@ -1,0 +1,26 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+/*
+* The game starts with row of coins and a player can choose any of the two extreem coins in his turn. the goal here is to maximise the
+* individual score.
+*/
+public final class Main {
+    static int[] coin;
+    static int[][] memo;
+	public static void main (String[] args) throws java.lang.Exception {
+	    Scanner in=new Scanner(System.in);
+	   int x=in.nextInt();
+	   int y=in.nextInt();
+	   double xx=y*Math.log(x);
+	   double yy=x*Math.log(y);
+	   if(xx<yy)
+	    System.out.println("<");
+	    else if(xx>yy)
+	    System.out.println(">");    
+	    else
+	    	    System.out.println("=");    
+
+	}
+   
+}

@@ -1,0 +1,55 @@
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+/*
+* The game starts with row of coins and a player can choose any of the two extreem coins in his turn. the goal here is to maximise the
+* individual score.
+*/
+public final class Main {
+    static int[] coin;
+    static int[][] memo;
+	public static void main (String[] args) throws java.lang.Exception {
+	    Scanner in=new Scanner(System.in);
+	    String[][] gems=new String[6][2];
+	    gems[1][0]="purple";
+	     gems[1][1]="Power";
+	      gems[2][0]="green";
+	     gems[2][1]="Time";
+	      gems[0][0]="blue";
+	     gems[0][1]="Space";
+	       gems[3][0]="orange";
+	     gems[3][1]="Soul";
+	      gems[4][0]="red";
+	     gems[4][1]="Reality";
+	      gems[5][0]="yellow";
+	     gems[5][1]="Mind";
+	    int[] stat=new int[6];
+        int n=in.nextInt();
+       if(n>0) in.nextLine();
+        for(int i=0;i<n;i++){
+            String s=in.nextLine(); 
+            for(int j=0;j<6;j++){
+                if(gems[j][0].equals(s)){
+                    stat[j]=1;
+                    break;
+                }
+            }
+        }
+        int no=0;
+        String ans="";
+        for(int i=0;i<6;i++){
+            if(stat[i]==0){
+                no++;
+                if(no==1)
+                ans+=gems[i][1];
+                else{
+                    ans+=System.lineSeparator()+gems[i][1];
+                }
+            }
+        }
+	    System.out.println(no);
+	    System.out.println(ans);    
+	}
+   
+}
